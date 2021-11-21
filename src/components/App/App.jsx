@@ -33,24 +33,28 @@ export default function App() {
         });
       }
     };
+
     fetchData();
   }, []);
-  console.log(state.error, state.loading);
+
   return (
-    <div className={classes.container}>
+    <React.Fragment>
+      {' '}
       <Header></Header>
-      {state.loading ? (
-        <Spinner></Spinner>
-      ) : (
-        <CustomTable
-          data={state.candidates}
-          columns={columnConfig}
-          emptyMessage={
-            state.error
-              ? 'Error Occurred - Unable to Retrieve Data'
-              : 'No Records Available'
-          }></CustomTable>
-      )}
-    </div>
+      <div className={classes.container}>
+        {state.loading ? (
+          <Spinner></Spinner>
+        ) : (
+          <CustomTable
+            data={state.candidates}
+            columns={columnConfig}
+            emptyMessage={
+              state.error
+                ? 'Error Occurred - Unable to Retrieve Data'
+                : 'No Records Available'
+            }></CustomTable>
+        )}
+      </div>
+    </React.Fragment>
   );
 }

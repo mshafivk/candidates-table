@@ -4,42 +4,36 @@ import classes from './Header.less';
 import SortIcon from '../SortIcon/SortIcon';
 import ColumnFilter from '../ColumnFilter/ColumnFilter';
 
-function Header({ columns, sortHandler, filterHandler, sortParams, data }) {
-  return (
-    <div className={classes.header}>
-      {columns.map(
-        ({ title, flexGrow, selector, filterable, sortable }, idx) => {
-          return (
-            <div
-              style={{ flexGrow: flexGrow ? flexGrow : '1' }}
-              className={classes['cell-wrapper']}
-              key={idx}>
-              <div>
-                <div onClick={() => sortable && sortHandler(selector)}>
-                  {title} &nbsp;
-                  {sortParams && sortParams.selector === selector ? (
-                    <SortIcon direction={sortParams.direction}></SortIcon>
-                  ) : (
-                    <span></span>
-                  )}
-                </div>
-              </div>
-              <div className={classes['filter-container']}>
-                {filterable && (
-                  <ColumnFilter
-                    data={data}
-                    selector={selector}
-                    onFilterChange={filterHandler}
-                  />
-                )}
-              </div>
-            </div>
-          );
-        },
-      )}
-    </div>
-  );
-}
+const Header = ({ columns, sortHandler, filterHandler, sortParams, data }) => (
+  <div className={classes.header}>
+    {columns.map(({ title, flexGrow, selector, filterable, sortable }, idx) => (
+      <div
+        style={{ flexGrow: flexGrow ? flexGrow : '1' }}
+        className={classes['cell-wrapper']}
+        key={idx}>
+        <div>
+          <div onClick={() => sortable && sortHandler(selector)}>
+            {title} &nbsp;
+            {sortParams && sortParams.selector === selector ? (
+              <SortIcon direction={sortParams.direction}></SortIcon>
+            ) : (
+              <span></span>
+            )}
+          </div>
+        </div>
+        <div className={classes['filter-container']}>
+          {filterable && (
+            <ColumnFilter
+              data={data}
+              selector={selector}
+              onFilterChange={filterHandler}
+            />
+          )}
+        </div>
+      </div>
+    ))}
+  </div>
+);
 
 export default React.memo(Header);
 

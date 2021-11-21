@@ -1,10 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { useFilterEntries } from '../../../hooks/useFilterEntries';
+import classes from './ColumnFilter.less';
 function ColumnFilter({ data, selector, onFilterChange }) {
   const filterEntries = useFilterEntries(data, selector);
   return (
     <select
+      className={classes.dropdown}
       data-testid="filter-dropdown"
       onChange={(e) => onFilterChange(selector, e.target.value)}>
       {filterEntries.map((item, index) => (
