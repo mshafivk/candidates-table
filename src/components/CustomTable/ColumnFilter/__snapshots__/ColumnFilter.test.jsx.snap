@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ColumnFilter Component should render properly 1`] = `
+<select
+  onChange={[Function]}
+>
+  <option
+    key="0"
+    value="ALL"
+  >
+    ALL
+  </option>
+  <option
+    key="1"
+  />
+</select>
+`;
