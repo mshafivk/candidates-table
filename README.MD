@@ -32,3 +32,17 @@ Use storybook to verify components independently.
 
 > Run storybook using _npm run storybook_
 > Storybook runs in localhost port 6006
+
+## Custom Table Component - Reusable Table Component used under the hood
+
+- The CustomTable Component is a scalable & reusable - configuration based component used for generating candidates table.
+- As of now CustomTable has Filter and Sort Functionality
+- Filter Can be applied on one field at a time. Planning to improve this to simultaneously apply multiple filters
+
+## Todo
+
+- Complete All test cases
+- Separate CustomTable and treat as an independent component
+- Enhance Component to have customFormatting option
+- Option customize style / pass custom class to component
+- ..
