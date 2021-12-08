@@ -1,4 +1,4 @@
-# Personio Recruiters
+# Recruiters
 
 Simple React Portal for recruiters to manage Outstanding Candidates.
 
